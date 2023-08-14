@@ -1,7 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import IconBrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.4/tsx/brand-github.tsx";
 import IconBook2 from "https://deno.land/x/tabler_icons_tsx@0.0.4/tsx/book-2.tsx";
-import ToasterDemo from "../islands/toaster-demo.tsx";
+import ToasterDemo from "../islands/demo.tsx";
 
 export default function Home() {
   return (

@@ -2,19 +2,24 @@ import { useSignal } from "@preact/signals";
 import { useId } from "preact/hooks";
 import Toaster, { ToasterPosition } from "../components/toaster.tsx";
 import { ToastType } from "../components/toast.tsx";
+import ToastContext from "../contexts/toastContext.tsx";
+import { useToaster } from "../hooks/index.tsx";
 
 export default function ToasterDemo() {
   const toastPositionId = useId();
   const toastTypeId = useId();
+  const toastContentId = useId();
   const toasterPosition = useSignal<ToasterPosition>("bottom-left");
   const toastType = useSignal<ToastType>("info");
+  const toastContent = useSignal("hello, toasts!");
+  const [toasts, toaster] = useToaster();
 
   const sendToast = () => {
-    console.log(toasterPosition.value);
+    toaster[toastType.value](toastContent);
   };
 
   return (
-    <>
+    <ToastContext.Provider value={toasts.value}>
       <div class="flex gap-y-2 flex-col max-w-sm w-full">
         <div class="flex flex-col gap-y-4">
           <div class="flex items-center justify-between">
@@ -22,7 +27,7 @@ export default function ToasterDemo() {
               Toast position:
             </label>
             <select
-              class="border px-4 py-2 rounded-md w-fit"
+              class="border px-4 py-2 rounded-md"
               id={toastPositionId}
               value={toasterPosition.value}
               onChange={(e) =>
@@ -42,7 +47,7 @@ export default function ToasterDemo() {
               Toast Type:
             </label>
             <select
-              class="border px-4 py-2 rounded-md w-fit"
+              class="border px-4 py-2 rounded-md"
               id={toastTypeId}
               value={toastType.value}
               onChange={(e) =>
@@ -53,6 +58,17 @@ export default function ToasterDemo() {
               <option value="info">Info</option>
             </select>
           </div>
+          <div class="flex justify-between items-center">
+            <label for={toastContentId} class="whitespace-nowrap">
+              Toast Content:
+            </label>
+            <input
+              class="border px-4 py-2 rounded-md text-right"
+              id={toastContentId}
+              value={toastContent.value}
+              onChange={(e) => toastContent.value = e.currentTarget.value}
+            />
+          </div>
         </div>
         <button
           class="px-4 py-2 border rounded-md bg-zinc-600 text-white hover:brightness-110 active:brightness-90 transition"
@@ -62,6 +78,6 @@ export default function ToasterDemo() {
         </button>
       </div>
       <Toaster position={toasterPosition.value} />
-    </>
+    </ToastContext.Provider>
   );
 }
