@@ -16,7 +16,7 @@ export default function Home() {
           <a href="https://github.com/cytrixdotworld/toaster">
             <IconBrandGithub aria-label="GitHub" />
           </a>
-          <a href="/docs">
+          <a href="https://github.com/cytrixdotworld/toaster#how-to-use">
             <IconBook2 aria-label="Documentation" />
           </a>
         </div>
