@@ -20,7 +20,7 @@ function useToaster() {
         children: children ?? `Action failed with ${err?.message}`,
         timeout,
       }];
-      console.error(err);
+      if (err) console.error(err);
     },
     info: (
       children: ToastProps["children"],
