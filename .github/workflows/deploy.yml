@@ -30,4 +30,4 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "cytrixtoaster"
-          entrypoint: "./_fresh/main.js"
+          entrypoint: "./main.ts"
