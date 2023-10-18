@@ -10,7 +10,7 @@ export default function Home() {
         <title>toaster</title>
       </Head>
       <main class="w-screen h-screen flex justify-center items-center flex-col">
-        <h1 class="text-4xl font-bold mb-2">Toaster</h1>
+        <h1 class="text-4xl font-medium mb-2">Toaster</h1>
         <h3 class="text-xl mb-4">A notification system for fresh.</h3>
         <div class="flex items-center gap-x-6">
           <a href="https://github.com/cytrixdotworld/toaster">

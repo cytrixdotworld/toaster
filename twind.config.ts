@@ -12,7 +12,7 @@ export default {
     ],
     theme: {
       fontFamily: {
-        sans: ["Satoshi", "system-ui"],
+        sans: ["Instrument Sans", "system-ui"],
       },
     },
   }),

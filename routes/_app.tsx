@@ -1,15 +1,16 @@
 import { AppProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
 
 export default function App({ Component }: AppProps) {
   return (
     <>
-      <Head>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap"
           rel="stylesheet"
         />
-      </Head>
+      </head>
       <Component />
     </>
   );
